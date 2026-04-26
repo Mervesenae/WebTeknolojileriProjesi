@@ -1,0 +1,115 @@
+﻿/* Genel Ayarlar */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Sayfa arkası biraz belli olsun diye ekledim */
+}
+
+/* --- BU KISMI GÜNCELLE --- */
+
+/* Ortak Header Özellikleri */
+header {
+    color: white;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Sayfaya Özel Renkler (Dışarıda ve Bağımsız Olmalı) */
+.header-index {
+    background-color: #3e338e !important;
+}
+
+.header-ozgecmis {
+    background-color: #8c48ce !important;
+}
+
+.header-sehrim {
+    background-color: #79bd52 !important;
+}
+
+/* Header içindeki yazı ayarı */
+header h1 {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    color: #ffffff !important;
+}
+
+/* --- GÜNCELLEME BİTTİ --- */
+/* İçerik Alanı */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Slider Alanı */
+.slider {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    border: 5px solid #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0,0.2);
+}
+
+    .slides img {
+        width: 100%;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+    }
+
+    .slides::-webkit-scrollbar {
+        display: none;
+    }
+
+/* Slider Butonları */
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+    .slider-nav a {
+        width: 30px;
+        height: 30px;
+        background: #2c3e50;
+        color: white;
+        text-decoration: none;
+        margin: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+
+        .slider-nav a:hover {
+            background: #3498db;
+        }
