@@ -3,11 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Sayfa arkası biraz belli olsun diye ekledim */
+    background-color: #f4f4f4;
 }
-
-/* --- BU KISMI GÜNCELLE --- */
-
 /* Ortak Header Özellikleri */
 header {
     color: white;
@@ -37,8 +34,6 @@ header h1 {
     width: 100%;
     color: #ffffff !important;
 }
-
-/* --- GÜNCELLEME BİTTİ --- */
 /* İçerik Alanı */
 main {
     max-width: 800px;
@@ -76,7 +71,7 @@ footer {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     border: 5px solid #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
     .slides img {
@@ -113,3 +108,27 @@ footer {
         .slider-nav a:hover {
             background: #3498db;
         }
+        /*Hakkında sayfası ayarı*/
+    .aktivite-kutusu {
+        display:flex;
+        text-align:center;
+        align-items: center; /* Dikeyde (aşağı-yukarı) tam ortalar */
+        justify-content:center;
+        gap: 30px; /* Fotoğraf ve yazı arasına biraz nefes aldırır */
+        margin-top: 20px; /* Üstteki başlıkla arasını açar */
+        margin-bottom:50px;
+        /*flex-wrap:wrap;*/
+    }
+
+    .aktivite-kutusu p {
+        width:350px;
+        text-align:right;
+        margin:0;
+    }
+
+    .aktivite-kutusu img {
+        width: 300px; /* Buradan istediğin genişliği ayarla */
+        height: 200px; /* Oran bozulmasın */
+        object-fit:cover;
+        border-radius: 10px; /* İstersen köşeleri hafif yuvarlar */
+    }
