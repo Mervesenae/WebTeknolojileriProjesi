@@ -20,13 +20,14 @@ header {
 .header-index {
     background-color: #3e338e !important;
 }
-
 .header-ozgecmis {
     background-color: #8c48ce !important;
 }
-
 .header-sehrim {
     background-color: #79bd52 !important;
+}
+.header-iletisim {
+    background-color: #d28020 !important;
 }
 
 /* Header içindeki yazı ayarı */
@@ -37,8 +38,6 @@ header h1 {
     width: 100%;
     color: #ffffff !important;
 }
-
-/* --- GÜNCELLEME BİTTİ --- */
 /* İçerik Alanı */
 main {
     max-width: 800px;
@@ -113,3 +112,26 @@ footer {
         .slider-nav a:hover {
             background: #3498db;
         }
+/*Hakkında sayfası ayarı*/
+.aktivite-kutusu {
+    display: flex;
+    text-align: center;
+    align-items: center; /* Dikeyde (aşağı-yukarı) tam ortalar */
+    justify-content: center; /*Her şey ortada */
+    gap: 30px; /* Fotoğraf ve yazı arasına biraz nefes aldırır */
+    margin-top: 20px; /* Üstteki başlıkla arasını açar */
+    margin-bottom: 50px;
+}
+
+    .aktivite-kutusu p {
+        width: 350px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .aktivite-kutusu img {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px; /* Köşeleri hafif yuvarlar */
+    }
