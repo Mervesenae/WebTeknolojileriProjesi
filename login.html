@@ -1,52 +1,99 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8"> 
+    <meta charset="utf-8">
     <title>Giriş Sayfası</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <div class="login-container">
+    <div id="app" class="login-container">
         <h2>Hesabınıza Giriş Yapın</h2>
-        <form id="loginForm" method="POST">
+        <form id="loginForm">
             <div>
-                <label for="username">Kullanıcı Adı:</label><br>
-                <input type="text" id="username" name="username" required>
-            </div>
-
-            <br>
-
-            <div>
-                <label for="password">Şifre:</label><br>
-                <input type="password" id="password" name="password" required>
+                <label> Kullanıcı Adı (E-mail):</label><br>
+                <input type="text" id="username" v-model="kullaniciAdi">
             </div>
             <br>
-            <button type="submit">Giriş Yap</button>
+            <div>
+                <label>Şifre:</label><br>
+                <input type="password" id="password" v-model="sifre">
+            </div>
+            <br>
+            <button type="button" onclick="nativeKontrol()">Native JS ile Giriş</button>
+            <button type="button" @click="vueKontrol">Vue.js ile Giriş</button>
         </form>
-        <p id="mesaj"></p>
+        <p id="mesaj">{{ vueMesaj }}</p>
     </div>
     <script>
-        const form = document.getElementById('loginForm');
-        const mesaj = document.getElementById('mesaj');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const kullaniciAdi = document.getElementById('username').value;
-            const sifre = document.getElementById('password').value;
-            const dogruKullanici = "B251210054@sakarya.edu.tr";
-            const dogruSifre = "B251210054";
-            if (kullaniciAdi === dogruKullanici && sifre === dogruSifre) {
-                mesaj.innerText = "Giriş Başarılı! Hoş geldin.";
-                mesaj.style.color = "green";
-                window.location.href="index.html"
-            } else {
-                mesaj.innerText = "Kullanıcı adı veya şifre hatalı!";
-                mesaj.style.color = "red";
+        //---ilk denetim js kısmı //
+        function nativeKontrol() {
+            const kadi = document.querySelector('input[type="text"]').value;
+            const sifre = document.querySelector('input[type="password"]').value;
+            const mesajAlani = document.getElementById('mesaj');
+
+            if (kadi === "" || sifre === "") {
+                alert("Lütfen tüm alanları doldurun!");
+                return;
             }
-        });
+            if (kadi === "B251210054@sakarya.edu.tr" && sifre === "B251210054") {
+                mesajAlani.innerText = "Native JS: Giriş Başarılı!";
+                mesajAlani.style.color = "green";
+                setTimeout(() => { window.location.href = "index.html"; }, 1000);
+            } else {
+                mesajAlani.innerText = "Hatalı giriş!";
+                mesajAlani.style.color = "red";
+            }
+        }
+        //---ikinci denetim denetim kütüphane kısmı //
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    kullaniciAdi: '',
+                    sifre: '',
+                    vueMesaj: ''
+                }
+            },
+            methods: {
+                vueKontrol() {
+                    if (this.kullaniciAdi === "B251210054@sakarya.edu.tr" && this.sifre === "B251210054") {
+                        this.vueMesaj = "Vue.js: Giriş Başarılı!";
+                        document.getElementById('mesaj').style.color = "green";
+                        setTimeout(() => { window.location.href = "index.html"; }, 1000);
+                    } else {
+                        this.vueMesaj = "Vue.js: Bilgiler hatalı!";
+                        document.getElementById('mesaj').style.color = "red";
+                    }
+                }
+            }
+        }).mount('#app');
     </script>
 
 
 
-
+    <script src="script.js"></script>
 </body>
 </html>
+
+<!-- const form = document.getElementById('loginForm');
+  const mesaj = document.getElementById('mesaj');
+  form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const kullaniciAdi = document.getElementById('username').value;
+      const sifre = document.getElementById('password').value;
+      const dogruKullanici = "B251210054@sakarya.edu.tr";
+      const dogruSifre = "B251210054";
+      if (kullaniciAdi === dogruKullanici && sifre === dogruSifre) {
+          mesaj.innerText = "Giriş Başarılı! Hoş geldin.";
+          mesaj.style.color = "green";
+          window.location.href="index.html"
+      } else {
+          mesaj.innerText = "Kullanıcı adı veya şifre hatalı!";
+          mesaj.style.color = "red";
+      }
+  });
+
+    burası bi dursun iki butonda denetimi tam oturtamadım kafamda. vue kütüphanesine tekrar bak!!!!!
+  -->
