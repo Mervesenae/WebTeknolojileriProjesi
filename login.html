@@ -27,7 +27,7 @@
         <p id="mesaj">{{ vueMesaj }}</p>
     </div>
     <script>
-        //---ilk denetim js kısmı //
+        //---ilk denetim js kısmı. burası komple iletişim sayfasıyla karışmış, boş bir vaktinde buraya dön. İKİ farklı buton iletişim sayfası için!!!!! //
         function nativeKontrol() {
             const kadi = document.querySelector('input[type="text"]').value;
             const sifre = document.querySelector('input[type="password"]').value;
@@ -38,7 +38,7 @@
                 return;
             }
             if (kadi === "B251210054@sakarya.edu.tr" && sifre === "B251210054") {
-                mesajAlani.innerText = "Native JS: Giriş Başarılı!";
+                mesajAlani.innerText = "Native JS: Giriş Başarılı!"; // Burada "Hoşgeldiniz B251210054 yazmalı, değiştirmeyi unutma"
                 mesajAlani.style.color = "green";
                 setTimeout(() => { window.location.href = "index.html"; }, 1000);
             } else {
