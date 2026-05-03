@@ -13,24 +13,24 @@ header {
     text-align: center;
 }
 
-/* Sayfaya Özel Renkler (Dışarıda ve Bağımsız Olmalı) */
+/* Sayfaya Özel Renkler */
 .header-index {
-    background-color: #3e338e !important;
+    background-color: #3e338e !important; /* lacivert */
 }
 .header-ozgecmis {
-    background-color: #57127b !important;
+    background-color: #57127b !important; /* mor */
 }
 .header-sehrim {
-    background-color: #217626 !important;
+    background-color: #217626 !important; /* koyu yeşil */
 }
 .header-mirasimiz {
-    background-color: #5c0a0a !important;
+    background-color: #5c0a0a !important; /* bordo */
 }
 .header-ilgialanlarim {
-    background-color: #2e9fb4 !important;
+    background-color: #2e9fb4 !important; /* turkuaz */
 }
 .header-iletisim {
-    background-color: #d28020 !important;
+    background-color: #d28020 !important; /* turuncu */
 }
 
 /* Header içindeki yazı ayarı */
@@ -42,7 +42,8 @@ header h1 {
     color: #ffffff !important;
 }
 /* İçerik Alanı */
-main {
+main { /*Bütün her şeyi bir kutu içerisine topladım. Başından beri böyle,
+           değiştirmek istersem buraya bakmam lazım */
     max-width: 800px;
     margin: 20px auto;
     background: white;
@@ -57,7 +58,7 @@ section {
     padding-bottom: 10px;
 }
 
-footer {
+footer { 
     text-align: center;
     padding: 10px;
     color: #777;
@@ -138,3 +139,111 @@ footer {
         object-fit: cover;
         border-radius: 10px; /* Köşeleri hafif yuvarlar */
     }
+
+    /* Giriş sayfası ayarları */
+    .login-body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5; /* gri */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* vh ekran yüksekliğine göre referans uzunluğu ayarlamak için */
+    }
+    .login-body .login-box {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 400px;
+    }
+    .login-body h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #1c1e21;
+    }
+    .login-body .input-group { /* Giriş yazılarının arasındaki boşluk */
+        margin-bottom: 20px;
+    }
+    .login-body label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #4b4f56;
+    }
+    .login-body input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #dddfe2;
+        border-radius: 6px;
+        box-sizing: border-box; /* Padding'in genişliği bozmasını önler */
+        font-size: 16px;
+    }
+    .login-body input:focus {
+        outline: none;
+        border-color: #1877f2;
+        box-shadow: 0 0 0 2px #e7f3ff;
+    }
+
+    /* Buton tasarımı */
+    .login-body button {
+        width: 100%;
+        padding: 12px;
+        background-color: #1877f2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .login-body button:hover {
+        background-color: #166fe5;
+    }
+
+    /* Kırmızı hata mesajı kutusu */
+    .login-body .error-msg {
+        background-color: #ffebe9;
+        color: #d93025;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(217, 48, 37, 0.2);
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+    .success-msg {
+        background-color: #d4edda;
+        color: #155724;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        border: 1px solid #c3e6cb;
+        animation: fadeIn 0.5s ease-in-out; /* Hafif bir belirme efekti */
+    }
+
+    .success-msg span {
+        display: block;
+        font-size: 14px;
+        font-weight: normal;
+        margin-top: 10px;
+        color: #155724;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+    }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+    }
+}
