@@ -1,12 +1,11 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title>İlgi Alanlarım</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="body-ilgialanlarim">
     <nav>
         <ul>
             <li><a href="login.php">Giriş</a></li>
@@ -23,7 +22,48 @@
         <h1>İlgi Alanlarım</h1>
     </header>
     <main>
+        <div class="container">
+            <h1>NASA'dan Günün Fotoğrafı</h1>
+            <hr>
 
+            <h2 id="space-title" class="loading">Veriler NASA'dan yükleniyor...</h2>
+
+            <img id="space-img" src="" alt="NASA Uzay Görüntüsü" style="display:none;">
+
+            <div id="space-exp" class="explanation"></div>
+
+            <div class="nasa-footer">
+                <i>Veri Kaynağı: NASA Open APIs - Astronomy Picture of the Day</i>
+            </div>
+        </div>
+
+        <script> // API ayarları
+        const apiKey = 'YzsKHfgGSJqg4FWnBwp2aQJtZONvI550NI4sYOze';
+        const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+
+        //Veriyi çeken fonksiyon bu
+        async function getNasaData() {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                document.getElementById('space-title').innerText = data.title;
+
+                const imgElement = document.getElementById('space-img');
+                imgElement.src = data.url;
+                imgElement.style.display = 'block'; //Resmin gözükmesi 
+
+                document.getElementById('space-exp').innerText = data.explanation;
+
+                document.getElementById('space-title').classList.remove('loading'); // Yükleme ekranını kaldırıyor bu
+
+            } catch (error) {
+                console.error("Hata:", error);
+                document.getElementById('space-title').innerText = "Veri çekilirken bir hata oluştu.";
+            }
+        }
+            getNasaData();
+        </script>
     </main>
 
     <footer>

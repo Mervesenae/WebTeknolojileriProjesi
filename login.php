@@ -5,7 +5,7 @@
     <title>Giriş Sayfası</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="login-body">
+<body class="body-login">
     <div class="login-container">
         <div class="login-box">
 

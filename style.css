@@ -1,4 +1,11 @@
-﻿/* Genel Ayarlar */
+﻿/* Burası aşırı ama aşırı karıştı özellikle arka plan rengi ekledikten sonra. arka plan renklerini de daha açık renk seçebilirim
+    böyle göz yoruyor gibi.
+    Stilleri sayfaların sırasına göre düzenle.
+    Birkaç özelliğin de birden sayfa düzenini değiştirmesi kafamı karıştırdı. display flex gibi. onlara bak bi unutma
+    bir de sayfalar arasında geçiş yaparken kelimeler alt alta değil de yan yana dursa daha iyi olur gibi
+*/
+
+/* Genel Ayarlar */
 body {
     margin: 0;
     padding: 0;
@@ -15,10 +22,10 @@ header {
 
 /* Sayfaya Özel Renkler */
 .header-index {
-    background-color: #3e338e !important; /* lacivert */
+    background-color: #571c5e !important; /* morumsu */
 }
 .header-ozgecmis {
-    background-color: #57127b !important; /* mor */
+    background-color: #89276f !important; /* sarı */
 }
 .header-sehrim {
     background-color: #217626 !important; /* koyu yeşil */
@@ -27,7 +34,7 @@ header {
     background-color: #5c0a0a !important; /* bordo */
 }
 .header-ilgialanlarim {
-    background-color: #2e9fb4 !important; /* turkuaz */
+    background-color: #0b3d91 !important; /* lacivert */
 }
 .header-iletisim {
     background-color: #d28020 !important; /* turuncu */
@@ -65,7 +72,20 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Slider Alanı */
+/* Özgeçmişim Sayfası */
+.body-ozgecmis {
+    background-color: #ddb4d7;
+}
+
+/* Mirasımız Sayfası */
+.body-mirasimiz {
+    background-color: #e6bdbd;
+}
+
+/* Şehrim Sayfası Slider Alanı */
+.body-sehrim {
+    background-color: #badbbb;
+}
 .slider {
     width: 100%;
     max-width: 700px;
@@ -92,7 +112,7 @@ footer {
         display: none;
     }
 
-/* Slider Butonları */
+/* Şehrim Sayfası Slider Butonları */
 .slider-nav {
     display: flex;
     justify-content: center;
@@ -116,7 +136,10 @@ footer {
         .slider-nav a:hover {
             background: #3498db;
         }
-/*Hakkında sayfası ayarı*/
+/*Hakkımda sayfası ayarı*/
+.body-hakkimda {
+    background-color: #c2a7d1 /* lila */
+}
 .aktivite-kutusu {
     display: flex;
     text-align: center;
@@ -141,81 +164,81 @@ footer {
     }
 
     /* Giriş sayfası ayarları */
-    .login-body {
+    .body-login {
         margin: 0;
         padding: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f0f2f5; /* gri */
+        background-color: #94bcc5; /* çok çok açık mavi mint gibi */
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh; /* vh ekran yüksekliğine göre referans uzunluğu ayarlamak için */
     }
-    .login-body .login-box {
-        background: #ffffff;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        width: 100%;
-        max-width: 400px;
+    .body-login .login-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
     }
-    .login-body h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #1c1e21;
-    }
-    .login-body .input-group { /* Giriş yazılarının arasındaki boşluk */
-        margin-bottom: 20px;
-    }
-    .login-body label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: #4b4f56;
-    }
-    .login-body input {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #dddfe2;
-        border-radius: 6px;
-        box-sizing: border-box; /* Padding'in genişliği bozmasını önler */
-        font-size: 16px;
-    }
-    .login-body input:focus {
-        outline: none;
-        border-color: #1877f2;
-        box-shadow: 0 0 0 2px #e7f3ff;
-    }
+        .body-login h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1c1e21;
+        }
+        .body-login .input-group { /* Giriş yazılarının arasındaki boşluk */
+            margin-bottom: 20px;
+        }
+        .body-login label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4b4f56;
+        }
+        .body-login input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            box-sizing: border-box; /* Padding'in genişliği bozmasını önler */
+            font-size: 16px;
+        }
+            .body-login input:focus {
+                outline: none;
+                border-color: #1877f2;
+                box-shadow: 0 0 0 2px #e7f3ff;
+            }
 
     /* Buton tasarımı */
-    .login-body button {
-        width: 100%;
-        padding: 12px;
-        background-color: #1877f2;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.2s;
-    }
+        .body-login button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
 
-    .login-body button:hover {
-        background-color: #166fe5;
-    }
+            .body-login button:hover {
+                background-color: #166fe5;
+            }
 
     /* Kırmızı hata mesajı kutusu */
-    .login-body .error-msg {
-        background-color: #ffebe9;
-        color: #d93025;
-        padding: 10px;
-        border-radius: 6px;
-        border: 1px solid rgba(217, 48, 37, 0.2);
-        margin-bottom: 20px;
-        text-align: center;
-        font-size: 14px;
-    }
+        .body-login .error-msg {
+            background-color: #ffebe9;
+            color: #d93025;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(217, 48, 37, 0.2);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
     .success-msg {
         background-color: #d4edda;
         color: #155724;
@@ -248,8 +271,8 @@ footer {
     }
 }
 /* İletişim Sayfasına Özel Tasarım */
-.iletisim-body-bg {
-    background-color: #f4f7f6;
+.body-iletisim {
+    background-color: #d8bfa5;
 }
 
 .iletisim-wrapper {
@@ -324,9 +347,9 @@ footer {
     color: white;
 }
 
-    .btn-native-stil:hover, .btn-framework-stil:hover {
+.btn-native-stil:hover, .btn-framework-stil:hover {
         opacity: 0.85;
-    }
+}
 
 #iletisim-msg-box {
     margin-top: 20px;
@@ -349,4 +372,53 @@ footer {
     color: #27ae60;
     display: block !important;
     border: 1px solid #27ae60;
+}
+/* İlgi Alanlarım Sayfası */
+.body-ilgialanlarim {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0b3d9180; /* NASA Mavisi */
+    justify-content: center;
+}
+
+.ilgialanlarim-container {
+    max-width: 800px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+img, iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+#space-img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+.loading {
+    font-style: italic;
+    color: #ccc;
+}
+
+.explanation {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1.1em;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.nasa-footer {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #aaa;
+    text-align: center;
 }
