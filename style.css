@@ -1,6 +1,4 @@
-﻿/* Burası aşırı ama aşırı karıştı özellikle arka plan rengi ekledikten sonra. arka plan renklerini de daha açık renk seçebilirim
-    böyle göz yoruyor gibi.
-    Stilleri sayfaların sırasına göre düzenle.
+﻿/* 
     Birkaç özelliğin de birden sayfa düzenini değiştirmesi kafamı karıştırdı. display flex gibi. onlara bak bi unutma
     bir de sayfalar arasında geçiş yaparken kelimeler alt alta değil de yan yana dursa daha iyi olur gibi
 */
@@ -18,26 +16,6 @@ header {
     padding: 40px 20px;
     margin-bottom: 30px;
     text-align: center;
-}
-
-/* Sayfaya Özel Renkler */
-.header-index {
-    background-color: #571c5e !important; /* morumsu */
-}
-.header-ozgecmis {
-    background-color: #89276f !important; /* sarı */
-}
-.header-sehrim {
-    background-color: #217626 !important; /* koyu yeşil */
-}
-.header-mirasimiz {
-    background-color: #5c0a0a !important; /* bordo */
-}
-.header-ilgialanlarim {
-    background-color: #0b3d91 !important; /* lacivert */
-}
-.header-iletisim {
-    background-color: #d28020 !important; /* turuncu */
 }
 
 /* Header içindeki yazı ayarı */
@@ -71,6 +49,31 @@ footer {
     color: #777;
     font-size: 0.9rem;
 }
+.nav-links {
+    display: flex; /* Elemanları yan yana dizer */
+    list-style: none; /* Noktaları kaldırır */
+    padding: 0;
+    margin: 0;
+    gap: 15px; /* Butonlar arasındaki boşluğu ayarlar */
+    justify-content: center;
+}
+
+.nav-btn {
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    padding: 10px 20px; /* Buton iç boşluğu */
+    background-color: ; /* Buton rengi ama hangi renk olacağına karar veremedim belki renksiz bırakırım */
+    color: black; /* Yazı rengi */
+    font-weight: bold;
+    border-radius: 5px; /* Köşeleri yuvarla */
+    transition: 0.3s; /* Geçiş efekti hızı */
+    display: inline-block;
+}
+
+    /* Mouse ile üzerine gelince */
+    .nav-btn:hover {
+        background-color: #dddddd; /* Renk biraz koyulaşsın */
+        transform: translateY(-2px); /* Hafif yukarı zıplasın */
+    }
 
 /* Özgeçmişim Sayfası */
 .body-ozgecmis {
@@ -78,11 +81,41 @@ footer {
 }
 
 /* Mirasımız Sayfası */
+.header-mirasimiz {
+    background-color: #5c0a0a !important; /* bordo */
+}
+.header-ozgecmis {
+    background-color: #89276f !important; /* sarı */
+}
 .body-mirasimiz {
     background-color: #e6bdbd;
 }
+.table-mirasimiz {
+    width: 100%; /* Sayfayı kaplaması için */
+    margin: 20px 0;
+    font-family: sans-serif;
+    min-width: 400px;
+}
+ .table-mirasimiz th {
+        background-color: #b12020; /* kırmızı bir başlık */
+        color: #ffffff; /* beyaz yazı */
+        text-align: left;
+        padding: 12px 15px;
+}
+    .table-mirasimiz td {
+        padding: 12px 15px;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+    }
+ .table-mirasimiz tr:hover {
+        background-color: #f5f5f5;
+}
 
-/* Şehrim Sayfası Slider Alanı */
+
+/* Şehrim Sayfası */
+.header-sehrim {
+    background-color: #217626 !important; /* koyu yeşil */
+}
 .body-sehrim {
     background-color: #badbbb;
 }
@@ -112,7 +145,7 @@ footer {
         display: none;
     }
 
-/* Şehrim Sayfası Slider Butonları */
+/* Slider Butonları */
 .slider-nav {
     display: flex;
     justify-content: center;
@@ -136,7 +169,11 @@ footer {
         .slider-nav a:hover {
             background: #3498db;
         }
+
 /*Hakkımda sayfası ayarı*/
+.header-index {
+    background-color: #571c5e !important; /* morumsu */
+}
 .body-hakkimda {
     background-color: #c2a7d1 /* lila */
 }
@@ -271,6 +308,9 @@ footer {
     }
 }
 /* İletişim Sayfasına Özel Tasarım */
+.header-iletisim {
+    background-color: #d28020 !important; /* turuncu */
+}
 .body-iletisim {
     background-color: #d8bfa5;
 }
@@ -374,6 +414,9 @@ footer {
     border: 1px solid #27ae60;
 }
 /* İlgi Alanlarım Sayfası */
+.header-ilgialanlarim {
+    background-color: #0b3d91 !important; /* lacivert */
+}
 .body-ilgialanlarim {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #0b3d9180; /* NASA Mavisi */
