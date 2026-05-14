@@ -376,7 +376,11 @@ footer {
     cursor: pointer;
     transition: opacity 0.3s;
 }
-
+.btn-sent-stil {
+    background-color: #6c1d1d;
+    color: white;
+    border-radius: 6px;
+}
 .btn-native-stil {
     background-color: #245979;
     color: white;
@@ -387,9 +391,9 @@ footer {
     color: white;
 }
 
-.btn-native-stil:hover, .btn-framework-stil:hover {
+    .btn-native-stil:hover, .btn-framework-stil:hover {
         opacity: 0.85;
-}
+    }
 
 #iletisim-msg-box {
     margin-top: 20px;
