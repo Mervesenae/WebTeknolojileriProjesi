@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Şifre (Öğrenci No):</label><br>
+                    <label>Şifre:</label><br>
                     <input type="password" id="sifre" name="sifre" required placeholder="b251210054"><br><br>
                 </div>
 
@@ -71,7 +71,7 @@
             }
 
             // 2. Kontrol: Mail formatı kontrolü
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //Reguler expression. Hangi işaretin hangi sırayla konduğuna tekrar bi bak
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 errorPanel.style.display = "block";
                 jsErrorMsg.innerText = "Lütfen geçerli bir e-posta formatı giriniz.";

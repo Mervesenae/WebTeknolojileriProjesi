@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>İletişim</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- vue kütüphanesi için bu -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- vue kütüphanesi için -->
 </head>
 <body class="body-iletisim">
     <nav class="navbar">
@@ -19,119 +19,120 @@
         </ul>
     </nav>
 
-    <!-- Genel anlamda oldu gibi ama benim bilgilerimi içermeli mi içermemeli mi emin değilim.
-        ona tekrar bir bak. regex'in mantığına bakmak iyi olabilir. e-mail kontrolü karışık geldi -->
-
     <header class="header-iletisim">
         <h1>İletişim</h1>
     </header>
     <main>
 
-        <div class="iletisim-wrapper" id="app">
-            <h2 class="iletisim-baslik">Bizimle İletişime Geçin</h2>
+            <div class="iletisim-wrapper" id="app">
+                <h2 class="iletisim-baslik">Bizimle İletişime Geçin</h2>
 
-            <form id="contactForm" class="iletisim-formu">
-                <div class="iletisim-alan">
-                    <label for="fullname">Ad Soyad:</label>
-                    <input type="text" id="fullname" v-model="formData.fullname" class="iletisim-input">
-                </div>
-
-                <div class="iletisim-alan">
-                    <label for="email">E-posta:</label>
-                    <input type="email" id="email" v-model="formData.email" class="iletisim-input">
-                </div>
-
-                <div class="iletisim-alan">
-                    <label for="phone">Telefon:</label>
-                    <input type="text" id="phone" v-model="formData.phone" class="iletisim-input" placeholder="05** *** ** **">
-                </div>
-
-                <div class="iletisim-alan"> <!-- Option için başka bir şey de düşünebilirim. Şimdilik konu kalsın-->
-                    <label for="subject">Konu:</label>
-                    <select id="subject" v-model="formData.subject" class="iletisim-select">
-                        <option value="">Seçiniz...</option>
-                        <option value="bilgi">Bilgi Talebi</option>
-                        <option value="destek">Teknik Destek</option>
-                        <option value="hata">Hata Bildirimi</option>
-                    </select>
-                </div>
-
-                <div class="iletisim-alan">
-                    <label>Cinsiyet:</label>
-                    <div class="iletisim-radio-grup">
-                        <input type="radio" id="kadin" value="kadin" v-model="formData.gender">
-                        <label for="kadin">Kadın</label>
-                        <input type="radio" id="erkek" value="erkek" v-model="formData.gender">
-                        <label for="erkek">Erkek</label>
+                <form id="contactForm" class="iletisim-formu" action="gonder.php" method="POST">
+                    <div class="iletisim-alan">
+                        <label for="fullname">Ad Soyad:</label>
+                        <input type="text" id="fullname" name="fullname" v-model="formData.fullname" class="iletisim-input">
                     </div>
-                </div>
 
-                <div class="iletisim-alan iletisim-checkbox-grup">
-                    <input type="checkbox" id="kvkk" v-model="formData.kvkk">
-                    <label for="kvkk">Verilerimin işlenmesini onaylıyorum.</label>
-                </div>
+                    <div class="iletisim-alan">
+                        <label for="email">E-posta:</label>
+                        <input type="email" id="email" name="email" v-model="formData.email" class="iletisim-input">
+                    </div>
 
-                <div class="iletisim-buttons">
-                    <button type="button" class="btn-native-stil" onclick="validateWithNativeJS()">Native JS Kontrol</button>
-                    <button type="button" class="btn-framework-stil" @click="validateWithFramework">Framework Kontrol</button>
-                    <button type="button" class="btn-sent-stil">Gönder</button>
-                </div>
-            </form>
+                    <div class="iletisim-alan">
+                        <label for="phone">Telefon:</label>
+                        <input type="text" id="phone" name="phone" v-model="formData.phone" class="iletisim-input" placeholder="05** *** ** **">
+                    </div>
 
-            <div id="iletisim-msg-box"></div>
-        </div>
+                    <div class="iletisim-alan">
+                        <label for="subject">Konu:</label>
+                        <select id="subject" name="subject" v-model="formData.subject" class="iletisim-select">
+                            <option value="">Seçiniz...</option>
+                            <option value="bilgi">Bilgi Talebi</option>
+                            <option value="destek">Teknik Destek</option>
+                            <option value="hata">Hata Bildirimi</option>
+                        </select>
+                    </div>
 
-        <script>
-            // Native JS 
-            function validateWithNativeJS() {
-                const fullname = document.getElementById('fullname').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const msgBox = document.getElementById('iletisim-msg-box');
-                let errors = [];
+                    <div class="iletisim-alan">
+                        <label class="msg-label">Mesajınız:</label>
+                        <textarea name="message" class="form-control" rows="4" v-model="formData.message"></textarea>
+                    </div>
 
-                if (!fullname || !email || !phone) errors.push("Lütfen boş alan bırakmayın.");
+                    <div class="iletisim-alan">
+                        <label>Cinsiyet:</label>
+                        <div class="iletisim-radio-grup">
+                            <input type="radio" id="kadin" name="gender" value="kadin" v-model="formData.gender">
+                            <label for="kadin">Kadın</label>
+                            <input type="radio" id="erkek" name="gender" value="erkek" v-model="formData.gender">
+                            <label for="erkek">Erkek</label>
+                        </div>
+                    </div>
 
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Burası login sayfasındaki gibi. emailin nasıl yazıldığını kontrol ediyor. unutma
-                if (email && !emailRegex.test(email)) errors.push("E-posta formatı hatalı.");
+                    <div class="iletisim-alan iletisim-checkbox-grup">
+                        <input type="checkbox" id="kvkk" name="kvkk" v-model="formData.kvkk">
+                        <label for="kvkk">Verilerimin işlenmesini onaylıyorum.</label>
+                    </div>
 
-                const phoneRegex = /^[0-9]+$/; // Sadece rakam denetimi. Bak burası daha anlaşılır sadece rakama baktığı için
-                if (phone && !phoneRegex.test(phone)) errors.push("Telefon sadece rakam içermelidir.");
+                    <div class="iletisim-buttons">
+                        <button type="button" class="btn-native-stil" onclick="validateWithNativeJS()">Native JS Kontrol</button>
+                        <button type="button" class="btn-framework-stil" @click="validateWithFramework">Framework Kontrol</button>
+                        <button type="submit" class="btn-sent-stil">Gönder</button>
+                    </div>
+                </form>
 
-                if (errors.length > 0) {
-                    msgBox.innerHTML = errors.join("<br>");
-                    msgBox.className = "iletisim-error";
-                } else {
-                    msgBox.innerHTML = "Native ile Doğrulama başarılı!";
-                    msgBox.className = "iletisim-success";
-                }
-            }
-            // Vue kütüphanesi
-            const { createApp } = Vue;
-            createApp({
-                data() { return { formData: { fullname: '', email: '', phone: '', subject: '', gender: '', kvkk: false } } },
-                methods: {
-                    validateWithFramework() {
-                        const msgBox = document.getElementById('iletisim-msg-box');
-                        if (!this.formData.email.includes('@')) {
-                            msgBox.innerHTML = "Framework: Geçerli bir e-posta girin.";
-                            msgBox.className = "iletisim-error";
-                        } else if (!this.formData.kvkk) {
-                            msgBox.innerHTML = "Framework: Lütfen onay kutusunu işaretleyin.";
-                            msgBox.className = "iletisim-error";
-                        } else {
-                            msgBox.innerHTML = "Framework ile Doğrulama başarılı!";
-                            msgBox.className = "iletisim-success";
-                        }
+                <div id="iletisim-msg-box"></div>
+            </div>
+
+            <script>
+                // Native JS
+                function validateWithNativeJS() {
+                    const fullname = document.getElementById('fullname').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const msgBox = document.getElementById('iletisim-msg-box');
+                    let errors = [];
+
+                    if (!fullname || !email || !phone) errors.push("Lütfen boş alan bırakmayın.");
+
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (email && !emailRegex.test(email)) errors.push("E-posta formatı hatalı.");
+
+                    const phoneRegex = /^[0-9]+$/;
+                    if (phone && !phoneRegex.test(phone)) errors.push("Telefon sadece rakam içermelidir.");
+
+                    if (errors.length > 0) {
+                        msgBox.innerHTML = errors.join("<br>");
+                        msgBox.className = "iletisim-error";
+                    } else {
+                        msgBox.innerHTML = "Native ile Doğrulama başarılı!";
+                        msgBox.className = "iletisim-success";
                     }
                 }
-            }).mount('#app');
-        </script>
+                // Vue kütüphanesi
+                const { createApp } = Vue;
+                createApp({
+                    data() { return { formData: { fullname: '', email: '', phone: '', subject: '', gender: '', kvkk: false } } },
+                    methods: {
+                        validateWithFramework() {
+                            const msgBox = document.getElementById('iletisim-msg-box');
+                            if (!this.formData.email.includes('@')) {
+                                msgBox.innerHTML = "Framework: Geçerli bir e-posta girin.";
+                                msgBox.className = "iletisim-error";
+                            } else if (!this.formData.kvkk) {
+                                msgBox.innerHTML = "Framework: Lütfen onay kutusunu işaretleyin.";
+                                msgBox.className = "iletisim-error";
+                            } else {
+                                msgBox.innerHTML = "Framework ile Doğrulama başarılı!";
+                                msgBox.className = "iletisim-success";
+                            }
+                        }
+                    }
+                }).mount('#app');
+            </script>
     </main>
 
     <footer>
         <p>Telif Hakkı &copy; 2026 - [Merve Sena Ertuğ]</p>
     </footer>
-
 </body>
 </html>

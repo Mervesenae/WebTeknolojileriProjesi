@@ -1,14 +1,9 @@
-﻿/* 
-    Birkaç özelliğin de birden sayfa düzenini değiştirmesi kafamı karıştırdı. display flex gibi. onlara bak bi unutma
-    bir de sayfalar arasında geçiş yaparken kelimeler alt alta değil de yan yana dursa daha iyi olur gibi
-*/
-
-/* Genel Ayarlar */
+﻿/* Genel Ayarlar */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Sayfa arkası biraz belli olsun diye ekledim */
+    background-color: #f4f4f4;
 }
 /* Ortak Header Özellikleri */
 header {
@@ -27,8 +22,7 @@ header h1 {
     color: #ffffff !important;
 }
 /* İçerik Alanı */
-main { /*Bütün her şeyi bir kutu içerisine topladım. Başından beri böyle,
-           değiştirmek istersem buraya bakmam lazım */
+main {
     max-width: 800px;
     margin: 20px auto;
     background: white;
@@ -61,7 +55,7 @@ footer {
 .nav-btn {
     text-decoration: none; /* Alt çizgiyi kaldırır */
     padding: 10px 20px; /* Buton iç boşluğu */
-    background-color: ; /* Buton rengi ama hangi renk olacağına karar veremedim belki renksiz bırakırım */
+    background-color: ; /* Buton rengi */
     color: black; /* Yazı rengi */
     font-weight: bold;
     border-radius: 5px; /* Köşeleri yuvarla */
@@ -361,13 +355,23 @@ footer {
     gap: 12px;
 }
 
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+    resize: vertical;
+}
+
 .iletisim-buttons {
     display: flex;
     gap: 15px;
     margin-top: 25px;
 }
 
-.btn-native-stil, .btn-framework-stil {
+.btn-native-stil, .btn-framework-stil, .btn-sent-stil {
     flex: 1;
     padding: 12px;
     border: none;
@@ -379,7 +383,6 @@ footer {
 .btn-sent-stil {
     background-color: #6c1d1d;
     color: white;
-    border-radius: 6px;
 }
 .btn-native-stil {
     background-color: #245979;

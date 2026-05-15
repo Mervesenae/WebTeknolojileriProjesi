@@ -6,7 +6,7 @@ $dogruEmail = "b251210054@sakarya.edu.tr";
 $dogruSifre = "b251210054";
 $ogrenciNo  = "b251210054";
 
-if (empty($gelenEmail) || empty($gelenSifre)) { // bilgileri burada kontrol ediyor
+if (empty($gelenEmail) || empty($gelenSifre)) { // Bilgileri burada kontrol ediyor
     header("Location: login.php?hata=bos");
     exit();
 } 
